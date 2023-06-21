@@ -1,0 +1,35 @@
+.navContainer {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navButtons {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navButtons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.navButtons li:last-child {
+    margin-right: 0;
+}
+
+.navButtons li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #555;
+    transition: background-color 0.3s ease;
+}
+
+.navButtons li a:hover {
+    background-color: #777;
+}
