@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/vampirerachel.github.io/goit-react-hw-05-movies/static/css/main.013e5231.css",
-    "main.js": "/vampirerachel.github.io/goit-react-hw-05-movies/static/js/main.a3c12ab4.js",
+    "main.css": "/vampirerachel.github.io/goit-react-hw-05-movies/static/css/main.cd94fa03.css",
+    "main.js": "/vampirerachel.github.io/goit-react-hw-05-movies/static/js/main.67f20764.js",
     "index.html": "/vampirerachel.github.io/goit-react-hw-05-movies/index.html",
-    "main.013e5231.css.map": "/vampirerachel.github.io/goit-react-hw-05-movies/static/css/main.013e5231.css.map",
-    "main.a3c12ab4.js.map": "/vampirerachel.github.io/goit-react-hw-05-movies/static/js/main.a3c12ab4.js.map"
+    "main.cd94fa03.css.map": "/vampirerachel.github.io/goit-react-hw-05-movies/static/css/main.cd94fa03.css.map",
+    "main.67f20764.js.map": "/vampirerachel.github.io/goit-react-hw-05-movies/static/js/main.67f20764.js.map"
   },
   "entrypoints": [
-    "static/css/main.013e5231.css",
-    "static/js/main.a3c12ab4.js"
+    "static/css/main.cd94fa03.css",
+    "static/js/main.67f20764.js"
   ]
 }
