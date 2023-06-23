@@ -16,7 +16,7 @@ const [isLoading, setIsLoading] = useState(false);
         setMovieData(response.results);
         setIsLoading(false);
       } catch (error) {
-        setError(error);
+console.log(error)
         setIsLoading(false);
       }
     } else {
