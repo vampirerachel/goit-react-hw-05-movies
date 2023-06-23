@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { searchMovies } from './api';
 import { Link } from 'react-router-dom';
 const Movies = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [movieData, setMovieData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+const [searchTerm, setSearchTerm] = useState('');
+const [movieData, setMovieData] = useState(null);
+const [isLoading, setIsLoading] = useState(false);
+
 
   const handleSearch = async (event) => {
     event.preventDefault();
