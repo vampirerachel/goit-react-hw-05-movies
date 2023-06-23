@@ -1,6 +1,7 @@
 .movieDetails {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .moviePoster {
@@ -16,4 +17,89 @@
 
 .movieInfo {
     flex: 1;
+}
+
+.sectionTitle {
+    margin-bottom: 10px;
+}
+
+.castList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.castItem {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.castImage {
+    width: 50px;
+    /* Adjust the size of the cast image */
+    height: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.reviewList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reviewItem {
+    margin-bottom: 10px;
+}
+
+.reviewAuthor {
+    font-weight: bold;
+}
+
+.reviewContent {
+    margin-top: 5px;
+}
+.movieDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.movieDetails .poster {
+    margin-bottom: 1rem;
+}
+
+.movieDetails .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.movieDetails .overview {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.movieDetails .description {
+    margin-bottom: 1rem;
+}
+
+.movieDetails .rating {
+    font-weight: bold;
+}
+.castImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.castImages .castImage {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0.5rem;
 }

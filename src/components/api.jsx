@@ -1,37 +1,79 @@
-import axios from "axios";
+import axios from 'axios';
+const apiKey  = '2bd5b9ad35b505d5cefbe556a85eab6a';
 
-export const getTrendingMovies = async () => {
-try {
-const response = await axios.get(
-`https://api.themoviedb.org/3/trending/movie/day?api_key=2bd5b9ad35b505d5cefbe556a85eab6a`
-);
-return response.data.results;
-} catch (error) {
-console.log('error fetching trending movie', error)
-return [];
-};
-};
-
-const API_KEY = '2bd5b9ad35b505d5cefbe556a85eab6a'; // Replace with your actual API key
-
-export const getMovieDetails = async (movieId) => {
-const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
-try {
-    const response = await axios.get(url);
-    const movieDetails = response.data;
-    const posterPath = movieDetails.poster_path;
-    if (posterPath) {
-    const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
-    movieDetails.posterUrl = posterUrl;
-    }
-    return movieDetails;
-} catch (error) {
-    throw new Error('Failed to fetch movie details: ' + error.message);
+export async function getTrendingMovies() {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching trending movies:', error);
+    throw error;
+  }
 }
-};
-export const getMoviePoster = (path) => {
-  if (!path) {
+
+// Search movies by keyword
+
+
+export async function searchMovies(keyword) {
+  const apiKey = '2bd5b9ad35b505d5cefbe556a85eab6a'; // Replace with your actual API key
+  const apiUrl = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(keyword)}&api_key=${apiKey}`;
+
+  try {
+    const response = await axios.get(apiUrl);
+    return response.data;
+  } catch (error) {
+    throw new Error('Error searching movies');
+  }
+}
+
+
+
+// Get movie details
+export async function getMovieDetails(movieId) {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching movie details:', error);
+    throw error;
+  }
+}
+
+// Get movie credits (cast info)
+export async function getMovieCredits(movieId) {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching movie credits:', error);
+    throw error;
+  }
+}
+
+// Get movie reviews
+export async function getMovieReviews(movieId) {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching movie reviews:', error);
+    throw error;
+  }
+}
+
+
+export function getMoviePoster(posterPath) {
+  if (!posterPath) {
     return null;
   }
-  return `https://image.tmdb.org/t/p/w500${path}`;
-};
+  return `https://image.tmdb.org/t/p/w500${posterPath}`;
+}
+
