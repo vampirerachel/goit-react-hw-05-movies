@@ -1,27 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { searchMovies } from './api';
 import { Link } from 'react-router-dom';
-const Movies = () => {
-const [searchTerm, setSearchTerm] = useState('');
-const [movieData, setMovieData] = useState(null);
-const [isLoading, setIsLoading] = useState(false);
+import { useSearchParams } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
+const Movies = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [movieData, setMovieData] = useState([]);
+
+  useEffect(() => {
+    if (searchParams.get('query') !== null) {
+      const newQuery = searchParams.get('query');
+      searchMovies(newQuery)
+        .then((data) => {
+          setMovieData(data.results);
+        })
+        .catch((error) => {
+          console.log('Error:', error);
+        });
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+  }, [movieData]);
 
   const handleSearch = async (event) => {
     event.preventDefault();
-    if (searchTerm.trim() !== '') {
-      try {
-        setIsLoading(true);
-        const response = await searchMovies(searchTerm);
-        setMovieData(response.results);
-        setIsLoading(false);
-      } catch (error) {
-console.log(error)
-        setIsLoading(false);
-      }
-    } else {
-      setMovieData([]);
+    const newQuery = event.target.elements.query.value.toLowerCase();
+
+    if (newQuery.trim() === '') {
+      Notiflix.Notify.info('Please enter a movie keyword');
+      return;
     }
+    setSearchParams({ query: newQuery });
   };
 
   return (
@@ -30,30 +41,29 @@ console.log(error)
       <form onSubmit={handleSearch}>
         <input
           type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          name="query"
           placeholder="Enter a movie keyword"
         />
         <button type="submit">Search</button>
       </form>
-      {isLoading && <div>Loading...</div>}
-      {movieData && (
-        <div>
-          <h3>Search Results:</h3>
+      <div>
+        <h3>Search Results:</h3>
+        {movieData.length > 0 ? (
           <ul>
             {movieData.map((movie) => (
-                <li key={movie.id}>
-                             <Link to={`/movies/${movie.id}`}>
-              <h3>{movie.title}</h3>
-            </Link>
-             </li>
+              <li key={movie.id}>
+                <Link to={`/movies/${movie.id}`}>
+                  <h3>{movie.title}</h3>
+                </Link>
+              </li>
             ))}
           </ul>
-        </div>
-      )}
+        ) : (
+          <p>No search results found.</p>
+        )}
+      </div>
     </div>
   );
 };
 
 export default Movies;
-

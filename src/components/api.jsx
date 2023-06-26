@@ -12,12 +12,9 @@ export async function getTrendingMovies() {
     throw error;
   }
 }
-
 // Search movies by keyword
-
-
 export async function searchMovies(keyword) {
-  const apiKey = '2bd5b9ad35b505d5cefbe556a85eab6a'; // Replace with your actual API key
+  const apiKey = '2bd5b9ad35b505d5cefbe556a85eab6a';
   const apiUrl = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(keyword)}&api_key=${apiKey}`;
 
   try {
