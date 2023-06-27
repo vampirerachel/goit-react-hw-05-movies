@@ -12,7 +12,6 @@ export async function getTrendingMovies() {
     throw error;
   }
 }
-// Search movies by keyword
 export async function searchMovies(keyword) {
   const apiKey = '2bd5b9ad35b505d5cefbe556a85eab6a';
   const apiUrl = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(keyword)}&api_key=${apiKey}`;
@@ -25,9 +24,6 @@ export async function searchMovies(keyword) {
   }
 }
 
-
-
-// Get movie details
 export async function getMovieDetails(movieId) {
   try {
     const response = await axios.get(
@@ -40,7 +36,6 @@ export async function getMovieDetails(movieId) {
   }
 }
 
-// Get movie credits (cast info)
 export async function getMovieCredits(movieId) {
   try {
     const response = await axios.get(
@@ -53,7 +48,6 @@ export async function getMovieCredits(movieId) {
   }
 }
 
-// Get movie reviews
 export async function getMovieReviews(movieId) {
   try {
     const response = await axios.get(
@@ -65,8 +59,6 @@ export async function getMovieReviews(movieId) {
     throw error;
   }
 }
-
-
 export function getMoviePoster(posterPath) {
   if (!posterPath) {
     return null;

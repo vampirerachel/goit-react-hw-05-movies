@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from './movieDetails.module.css';
 import { getMovieReviews } from './api';
+import MovieDetails from './MovieDetails';
 
 const Reviews = ({ movieId }) => {
   const [movieReviews, setMovieReviews] = useState([]);
-  const [showReviews, setShowReviews] = useState(false);
-
-  const toggleReviews = () => {
-    setShowReviews(!showReviews);
-  };
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -24,13 +20,9 @@ const Reviews = ({ movieId }) => {
 
   return (
     <div className={styles.movieSection}>
-      <h3 className={styles.sectionTitle}>
-        <button onClick={toggleReviews} className={styles.toggleButton}>
-          {showReviews ? 'Hide Reviews' : 'Show Reviews'}
-        </button>
+      <MovieDetails movieId={movieId} />
+      <h3 className={styles.sectionTitle}> Reviews
       </h3>
-      {showReviews && (
-        <>
           {movieReviews.length > 0 ? (
             <ul className={styles.reviewList}>
               {movieReviews.map((review) => (
@@ -43,8 +35,7 @@ const Reviews = ({ movieId }) => {
           ) : (
             <p>No reviews available</p>
           )}
-        </>
-      )}
+      
     </div>
   );
 };

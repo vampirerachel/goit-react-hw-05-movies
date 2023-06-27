@@ -1,105 +1,169 @@
 .movieDetails {
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.movieHeader {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
 }
 
 .moviePoster {
-    flex: 0 0 200px;
-    /* Adjust the width as needed */
-    margin-right: 20px;
-}
-
-.posterImage {
-    width: 100%;
+    width: 200px;
     height: auto;
+    margin-right: 1rem;
 }
 
 .movieInfo {
     flex: 1;
 }
 
-.sectionTitle {
-    margin-bottom: 10px;
-}
-
-.castList {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.castItem {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.castImage {
-    width: 50px;
-    /* Adjust the size of the cast image */
-    height: auto;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.reviewList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.reviewItem {
-    margin-bottom: 10px;
-}
-
-.reviewAuthor {
-    font-weight: bold;
-}
-
-.reviewContent {
-    margin-top: 5px;
-}
-.movieDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.movieDetails .poster {
-    margin-bottom: 1rem;
-}
-
-.movieDetails .title {
+.movieTitle {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
-.movieDetails .overview {
+.movieOverview {
     font-size: 1rem;
     margin-bottom: 1rem;
 }
 
-.movieDetails .description {
+.movieRating {
+    font-weight: bold;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 1rem;
 }
 
-.movieDetails .rating {
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.navigation a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.castAndReviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.castSection,
+.reviewsSection {
+    flex-basis: 49%;
+}
+
+.sectionTitle {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+}
+
+.castList,
+.reviewList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.castItem,
+.reviewItem {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.castImage {
+
+    height: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+}
+
+.reviewAuthor {
     font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.reviewContent {
+    color: #fff;
+    line-height: 1.5;
 }
 .castImages {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
-.castImages .castImage {
+.castImage {
     width: 100px;
     height: 150px;
     object-fit: cover;
     margin: 0.5rem;
+    border-radius: 5px;
+    position: relative;
+}
+
+.castItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    max-width: 100px;
+    text-align: center;
+}
+
+.castName {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.placeholderImage {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin: 0.5rem;
+}
+
+.placeholderText {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.castContainer {
+    display: flex;
+    justify-content: center;
 }

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Routes, Route, Link, Outlet, useNavigate } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import styles from './movieDetails.module.css';
-import { getMovieDetails, getMovieCredits, getMovieReviews, getMoviePoster } from './api';
-import Cast from './Cast';
-import Reviews from './Reviews';
+import { getMovieDetails, getMoviePoster } from './api';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate();
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
